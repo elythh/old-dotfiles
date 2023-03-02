@@ -3,7 +3,6 @@
 :turtle:
 
 ## structure
-
 ```
 .
 ├── config
@@ -11,7 +10,9 @@
 │   ├── BetterDiscord
 │   ├── picom
 │   ├── rofi
+│   ├── firefox
 │   ├── starship
+│   ├── nvim
 │   └── wezterm
 └── README.md
 ```
@@ -20,11 +21,15 @@
 
 ### awesome
 
-basically [rxyhn's](github.com/rxyhn/awesomewm) dotfile with minor modifications
+basically [mariod8's](github.com/mariod8/dotfile) dotfile with minor modifications
 
 ### betterdiscord
 
 some random themes
+
+### firefox
+
+from [AmadeuWM](https://github.com/AmadeusWM/dotfiles-hyprland/tree/main/dots/firefox)
 
 ### picom
 
@@ -34,6 +39,10 @@ picom config from rxyhn
 
 based of rxyhn, with some modifications
 
+### nvim
+
+lazyvim with some small tweaks
+
 ### wezterm
 
-from rxyhn
+from mariod8

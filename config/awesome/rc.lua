@@ -1,50 +1,63 @@
---- ░█▀▄░█░█░█░█░█░█░█▀█░▀░█▀▀░░░█▀█░█░█░█▀▀░█▀▀░█▀█░█▄█░█▀▀
---- ░█▀▄░▄▀▄░░█░░█▀█░█░█░░░▀▀█░░░█▀█░█▄█░█▀▀░▀▀█░█░█░█░█░█▀▀
---- ░▀░▀░▀░▀░░▀░░▀░▀░▀░▀░░░▀▀▀░░░▀░▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀
---- ~~~~~~~~~~~~~~~~~~  @author rxyhn ~~~~~~~~~~~~~~~~~~~~~~
---- ~~~~~~~~~~~~ https://github.com/rxyhn ~~~~~~~~~~~~~~~~~~
+-- Importing libraries
+help = require('help')
+gears = require('gears')
+awful = require('awful')
+wibox = require('wibox')
+naughty = require("naughty")
+beautiful = require('beautiful')
+dpi = beautiful.xresources.apply_dpi
+beautiful.init('~/.config/awesome/theme/init.lua')
+keys = require('keys')
+dashboard = require("dashboard")
+sig = require('signals')
+local signals = require("signals")
+local req = {
+  'notifications',
+  'bar',
+  'menu',
+  'rules',
+  'titlebar',
+  'client',
+  'awful.autofocus',
+}
+require("popup")
 
-pcall(require, "luarocks.loader")
-local gears = require("gears")
-local beautiful = require("beautiful")
+for _, x in pairs(req) do
+  require(x)
+end
 
---- ░▀█▀░█░█░█▀▀░█▄█░█▀▀
---- ░░█░░█▀█░█▀▀░█░█░█▀▀
---- ░░▀░░▀░▀░▀▀▀░▀░▀░▀▀▀
+-- Layouts
+awful.layout.layouts = {
+  awful.layout.suit.tile,
+  awful.layout.suit.floating,
+}
 
-local theme_dir = gears.filesystem.get_configuration_dir() .. "theme/"
-beautiful.init(theme_dir .. "theme.lua")
+-- Virtual desktops/ Tabs
+awful.screen.connect_for_each_screen(function(s)
+  help.randomize_wallpaper()
+  local tagTable = {}
+  for i = 1, keys.tags do
+    table.insert(tagTable, tostring(i))
+  end
+  awful.tag(tagTable, s, awful.layout.layouts[1])
+end)
 
---- ░█▀▀░█▀█░█▀█░█▀▀░▀█▀░█▀▀░█░█░█▀▄░█▀█░▀█▀░▀█▀░█▀█░█▀█░█▀▀
---- ░█░░░█░█░█░█░█▀▀░░█░░█░█░█░█░█▀▄░█▀█░░█░░░█░░█░█░█░█░▀▀█
---- ░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀
 
-require("configuration")
+-- Garbage Collection
+collectgarbage('setpause', 110)
+collectgarbage('setstepmul', 1000)
 
---- ░█▄█░█▀█░█▀▄░█░█░█░░░█▀▀░█▀▀
---- ░█░█░█░█░█░█░█░█░█░░░█▀▀░▀▀█
---- ░▀░▀░▀▀▀░▀▀░░▀▀▀░▀▀▀░▀▀▀░▀▀▀
+-- Signals
+gears.timer {
+  timeout = 10,
+  single_shot = true,
+  autostart = true,
+  call_now = true,
+  callback = function()
+    signals.vol()
+    signals.mic()
+  end
+}
 
-require("modules")
-
---- ░█░█░▀█▀
---- ░█░█░░█░
---- ░▀▀▀░▀▀▀
-
-require("ui")
-
---- ░█▀▀░█▀█░█▀▄░█▀▄░█▀█░█▀▀░█▀▀
---- ░█░█░█▀█░█▀▄░█▀▄░█▀█░█░█░█▀▀
---- ░▀▀▀░▀░▀░▀░▀░▀▀░░▀░▀░▀▀▀░▀▀▀
-
---- Enable for lower memory consumption
-collectgarbage("setpause", 110)
-collectgarbage("setstepmul", 1000)
-gears.timer({
-	timeout = 5,
-	autostart = true,
-	call_now = true,
-	callback = function()
-		collectgarbage("collect")
-	end,
-})
+-- Autostart
+awful.spawn("picom -b", false)
