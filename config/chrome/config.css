@@ -19,13 +19,13 @@
   --ap-secondary-l: 58%;
   --ap-secondary-d: 70%;
   --ap-secondary: hsl(var(--ap-secondary-h), var(--ap-secondary-s), var(--ap-secondary-l));
-  --ap-base1-h: 0;
-  --ap-base1-s: 0%;
+  --ap-base1-h: 249;
+  --ap-base1-s: 33%;
   --ap-base1-l: 8%;
   --ap-base1-d: 10%;
   --ap-base0: hsl(var(--ap-base0-h), var(--ap-base0-s), var(--ap-base0-l));
-  --ap-base0-h: 0;
-  --ap-base0-s: 0%;
+  --ap-base0-h: 250;
+  --ap-base0-s: 23%;
   --ap-base0-l: 5%;
   --ap-base0-d: 13%;
   --ap-base1: hsl(var(--ap-base1-h), var(--ap-base1-s), var(--ap-base1-l));
@@ -39,7 +39,7 @@
   --ap-color-strong: #E97193;
   --ap-color-quote: #E97193;
   --ap-color-italic: #E97193;
-  --ap-color-tag-background: #2c2537;
+  --ap-color-tag-background: #141414;
   --ap-color-tag-text: #EEEEEE;
   --ap-code-gray-1: #5b5c5f;
   --ap-code-gray-2: #45474c;
@@ -144,9 +144,9 @@ one that stays (static)
 }
 
 :root[privatebrowsingmode=temporary] {
-  --dark-0: #1C0E34;
-  --dark-base: #20103c;
-  --dark-1: #2F1D4E;
+  --dark-0: #141414;
+  --dark-base: #141414;
+  --dark-1: #141414;
   --dark-2: #38225D;
   --dark-3: #4A2D7B;
   --dark-4: #53338A;
