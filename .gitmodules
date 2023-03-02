@@ -1,0 +1,2 @@
+[submodule "config/nvim"]
+	url = https://github.com/elythh/nvim.git
