@@ -11,6 +11,7 @@
 │   ├── picom
 │   ├── rofi
 │   ├── firefox
+│   ├── spicetify
 │   ├── starship
 │   ├── nvim
 │   └── wezterm
@@ -34,6 +35,10 @@ from [AmadeuWM](https://github.com/AmadeusWM/dotfiles-hyprland/tree/main/dots/fi
 ### picom
 
 picom config from rxyhn
+
+### spicetify
+
+small custom theme to match the rest
 
 ### starship
 
