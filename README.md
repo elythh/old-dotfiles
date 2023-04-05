@@ -38,7 +38,7 @@ picom config from rxyhn
 
 ### spicetify
 
-small custom theme to match the rest
+small custom theme to match the rest (need fix)
 
 ### starship
 
