@@ -77,30 +77,17 @@ local function deco_cell(widget, flag, date)
   elseif flag == "month" then
     return widget
   elseif flag == "weekday" then
-    local ret = wibox.widget {
-      markup = help.fg(widget:get_text(), beautiful.fg, "bold"),
-      halign = "center",
-      widget = wibox.widget.textbox
-    }
-    return ret
+    widget:set_markup(help.fg(widget:get_text(), beautiful.fg, "bold"))
+    return widget
   end
   local today = date.day == day and date.month == month and date.year == year
   local ret = wibox.widget {
     {
-      {
-        nil,
-        {
-          markup = today and help.fg(widget:get_text(), beautiful.bg, "bold") or
-              help.fg(widget:get_text(), beautiful.fg, "normal"),
-          halign = "center",
-          widget = wibox.widget.textbox
-        },
-        nil,
-        layout = wibox.layout.align.horizontal
-      },
-      widget = wibox.container.margin,
+      widget,
       margins = dpi(5),
+      widget  = wibox.container.margin
     },
+    fg     = today and widget:set_markup(help.fg(widget:get_text(), beautiful.bg, "bold")) or beautiful.fg,
     bg     = today and beautiful.pri or beautiful.bg,
     shape  = help.rrect(dpi(5)),
     widget = wibox.container.background
@@ -132,10 +119,6 @@ M.cal = awful.popup {
           { margins = { left = beautiful.bar_width + (beautiful.useless_gap * 4), bottom = beautiful.useless_gap * 2 } })
   end,
 }
-
-awful.placement.bottom_left(pop,
-  { margins = { left = beautiful.bar_width + (beautiful.useless_gap * 4), bottom = beautiful.useless_gap * 2 } })
-
 
 M.cal.toggle = function()
   M.cal.visible = not M.cal.visible
