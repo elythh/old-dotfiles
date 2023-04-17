@@ -22,7 +22,8 @@
 
 ### awesome
 
-basically [mariod8's](github.com/mariod8/dotfile) dotfile with minor modifications
+basically [mariod8's](github.com/mariod8/dotfile) dotfile with minor modifications \
+currently testing out [chadcat7's](https://github.com/chadcat7/fuyu) config on branch new-awesome
 
 ### betterdiscord
 
