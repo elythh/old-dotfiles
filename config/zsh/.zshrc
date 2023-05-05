@@ -1,4 +1,5 @@
 
+
 ## ░▀▀█░█▀▀░█░█░█▀▄░█▀▀
 ## ░▄▀░░▀▀█░█▀█░█▀▄░█░░
 ## ░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀
@@ -22,13 +23,3 @@ EOF
 
 # vim:ft=zsh:nowrap
 
-
-# The following lines were added by compinstall
-
-zstyle ':completion:*' completer _complete _ignored
-zstyle :compinstall filename '/home/gwen/.config/zsh/.zshrc'
-
-autoload -Uz compinit
-compinit
-source <(kubectl completion zsh)
-# End of lines added by compinstall
