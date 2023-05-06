@@ -23,4 +23,6 @@ M.fg2 = "#b7b7b7"
 M.fg3 = "#d4d5d5"
 M.fg4 = "#5a5858"
 
+M.ow = "0c0c0c"
+
 return M
