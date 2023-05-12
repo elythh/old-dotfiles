@@ -10,6 +10,7 @@ local dpi = beautiful.xresources.apply_dpi
 local helpers = require("helpers")
 local ruled = require("ruled")
 local menubar = require("menubar")
+local animation = require("modules.animation")
 local gears = require("gears")
 
 
@@ -20,19 +21,8 @@ naughty.connect_signal("request::icon", function(n, context, hints)
   local path = menubar.utils.lookup_icon(hints.app_icon) or menubar.utils.lookup_icon(hints.app_icon:lower())
 
   if path then n.icon = path end
-
 end)
 
-local function get_oldest_notification()
-  for _, notification in ipairs(naughty.active) do
-    if notification and notification.timeout > 0 then
-      return notification
-    end
-  end
-
-  --- Fallback to first one.
-  return naughty.active[1]
-end
 
 -- naughty config
 naughty.config.defaults.ontop    = true
@@ -59,8 +49,6 @@ end)
 -- connect to each display
 --------------------------
 naughty.connect_signal("request::display", function(n)
-
-
   -- action widget
   local action_widget = {
     {
@@ -75,7 +63,7 @@ naughty.connect_signal("request::display", function(n)
       right = dpi(6),
       widget = wibox.container.margin
     },
-    bg = beautiful.bg_2,
+    bg = beautiful.mbg,
     forced_height = dpi(30),
     shape = helpers.rrect(2),
     widget = wibox.container.background
@@ -99,19 +87,45 @@ naughty.connect_signal("request::display", function(n)
   -- image
   local image_n = wibox.widget {
     {
-      opacity = 0.6,
-      image = n.icon,
-      resize = true,
-      halign = "center",
-      valign = "center",
-      widget = wibox.widget.imagebox,
+      {
+        opacity = 0.9,
+        image = n.icon,
+        resize = true,
+        halign = "center",
+        valign = "center",
+        clip_shape = helpers.rrect(50),
+        widget = wibox.widget.imagebox,
+      },
+      strategy = "exact",
+      height = dpi(60),
+      width = dpi(60),
+      widget = wibox.container.constraint,
     },
-    strategy = "exact",
-    height = dpi(50),
-    width = dpi(50),
-    widget = wibox.container.constraint,
+    id = "arc",
+    widget = wibox.container.arcchart,
+    max_value = 100,
+    min_value = 0,
+    value = 100,
+    rounded_edge = true,
+    thickness = dpi(4),
+    start_angle = 4.71238898,
+    bg = beautiful.pri,
+    colors = { beautiful.fg },
+    forced_width = dpi(60),
+    forced_height = dpi(60)
   }
-
+  local anim = animation:new {
+    duration = 6,
+    target = 100,
+    reset_on_stop = false,
+    easing = animation.easing.linear,
+    update = function(_, pos)
+      image_n:get_children_by_id('arc')[1].value = pos
+    end,
+  }
+  anim:connect_signal("ended", function()
+    n:destroy()
+  end)
 
   -- title
   local title_n = wibox.widget {
@@ -210,13 +224,12 @@ naughty.connect_signal("request::display", function(n)
 
   local widget = naughty.layout.box {
     notification    = n,
-    type            = "notification",
     bg              = beautiful.bg_color,
-    shape           = helpers.rrect(beautiful.rounded),
+    shape           = helpers.rrect(8),
     widget_template = {
       {
-
-        { -- top bit
+        {
+          -- top bit
           {
             {
               {
@@ -234,8 +247,8 @@ naughty.connect_signal("request::display", function(n)
           },
           layout = wibox.layout.fixed.vertical
         },
-
-        { -- body
+        {
+          -- body
           {
             {
               title_n,
@@ -251,27 +264,21 @@ naughty.connect_signal("request::display", function(n)
           margins = { left = dpi(15), top = dpi(10), right = dpi(10) },
           widget = wibox.container.margin
         },
-
-        { -- foot
+        {
+          -- foot
           actions,
           margins = dpi(10),
           widget = wibox.container.margin
         },
-
         layout = wibox.layout.fixed.vertical,
         spacing = dpi(10)
-
       },
-
       widget = wibox.container.background,
-      shape = helpers.rrect(3),
+      shape = helpers.rrect(8),
       bg = beautiful.bg,
     }
   }
 
   widget.buttons = {}
-
-
-
+  anim:start()
 end)
-

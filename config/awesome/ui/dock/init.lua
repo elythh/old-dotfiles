@@ -6,7 +6,6 @@ local helpers = require("helpers")
 local iconTheme = require("theme.colors").iconTheme
 local beautiful = require("beautiful")
 local getIcon = require("ui.dock.getIcon")
-local drawPreview = require("ui.dock.taskpreview") -- TODO client previews
 
 
 local placeDock = function(c, m)
@@ -116,11 +115,9 @@ local tomfoolery = function(s)
   end
 
   local createPermaElements = function()
-    local launcher = createPermaElement("/apps/scalable/search.svg", "rofi -show drun")
     local trash = createPermaElement("/places/scalable/gnome-dev-trash-full.svg", "nemo trash:/")
     return wibox.widget {
       {
-        launcher,
         trash,
         spacing = 7,
         layout = layout
@@ -179,12 +176,6 @@ local tomfoolery = function(s)
         },
         bg = bac
       }
-      widget:connect_signal("mouse::enter", function()
-        --  drawPreview(v, true)
-      end)
-      widget:connect_signal("mouse::leave", function()
-        -- drawPreview(v, false)
-      end)
       indicators:add(widget)
     end
     return wibox.widget {

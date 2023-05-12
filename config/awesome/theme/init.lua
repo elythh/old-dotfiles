@@ -1,42 +1,28 @@
-local theme             = {}
-local xresources        = require("beautiful.xresources")
-local colors            = require("theme.colors")
-local awful             = require("awful")
-local dpi               = xresources.apply_dpi
-local gfs               = require("gears.filesystem")
-local gears             = require("gears")
-local appearConfig      = require("config.appearance")
-local theme_path        = gfs.get_configuration_dir() .. "/theme/"
-theme.barfont           = 'Iosevka Nerd Font 13'
-theme.font              = 'Iosevka Nerd Font'
-theme.sans              = "IBM Plex Sans"
-theme.icofont           = 'Material Design Icons'
+local theme              = {}
+local xresources         = require("beautiful.xresources")
+local colors             = require("theme.colors")
+local dpi                = xresources.apply_dpi
+local gfs                = require("gears.filesystem")
+local gears              = require("gears")
+local appearConfig       = require("config.appearance")
+local theme_path         = gfs.get_configuration_dir() .. "/theme/"
+theme.barfont            = 'Iosevka Nerd Font 13'
+theme.font               = 'Iosevka Nerd Font'
+theme.sans               = "IBM Plex Sans"
+theme.icofont            = 'Material Design Icons'
 
-theme.titlebarType      = appearConfig.titlebarType
-theme.barDir            = appearConfig.barDir
-theme.barPadding        = appearConfig.gaps
-theme.barSize           = appearConfig.barSize
-theme.dockSize          = appearConfig.dockSize
-theme.barShouldHaveGaps = appearConfig.barShouldHaveGaps
+theme.titlebarType       = appearConfig.titlebarType
+theme.barDir             = appearConfig.barDir
+theme.barPadding         = appearConfig.gaps
+theme.barSize            = appearConfig.barSize
+theme.dockSize           = appearConfig.dockSize
+theme.barShouldHaveGaps  = appearConfig.barShouldHaveGaps
 
-theme.scrheight         = appearConfig.scrheight
-theme.scrwidth          = appearConfig.scrwidth
+theme.scrheight          = appearConfig.scrheight
+theme.scrwidth           = appearConfig.scrwidth
 
-theme.wall              = colors.wall
-local function file_exists(name)
-  local f = io.open(name, "r")
-  if f ~= nil then
-    io.close(f)
-    return true
-  else
-    return false
-  end
-end
+theme.wall               = colors.wall
 
-if not file_exists(gfs.get_cache_dir() .. colors.ow) then
-  os.execute('convert ' .. theme.wall .. ' -modulate 50 -filter Gaussian -blur 0x8 ~/.cache/awesome/' .. colors.ow)
-end
-theme.blurwall           = gfs.get_cache_dir() .. colors.ow
 theme.name               = colors.name
 theme.ok                 = colors.ok
 theme.warn               = colors.warn
@@ -56,7 +42,7 @@ theme.fg2                = colors.fg3
 theme.fg3                = colors.fg4
 
 theme.fg_focus           = theme.fg
-theme.fg_normal          = theme.fg1
+theme.fg_normal          = theme.fg
 theme.fg_minimize        = theme.fg2
 
 theme.bg_normal          = theme.bg2
@@ -70,7 +56,7 @@ theme.snap_bg            = theme.fg2
 theme.border_width       = dpi(5)
 theme.border_color       = theme.bg2
 
-theme.titlebar_fg        = theme.fg .. "40"
+theme.titlebar_fg        = theme.fg
 theme.titlebar_fg_normal = theme.fg2
 theme.titlebar_fg_focus  = theme.fg
 theme.titlebar_bg        = theme.bg2
@@ -114,13 +100,14 @@ theme.notification_icon_size   = dpi(80)
 theme.separator_color          = theme.fg2
 
 
-theme.profilepicture = theme_path .. "/pics/pfp.jpg"
+theme.profilepicture = theme_path .. "/pics/cool.jpg"
 theme.songdefpicture = theme_path .. "/pics/nosong.jpg"
 theme.menupicture = theme_path .. "/pics/menu2.png"
 
 
 theme.titlebar_maximized_button_focus_active    = gears.color.recolor_image(theme_path .. "icons/" .. "circle.svg",
   theme.warn)
+theme.nonotif                                   = theme_path .. "icons/" .. "bells.png"
 theme.titlebar_maximized_button_focus_inactive  = gears.color.recolor_image(theme_path .. "icons/" .. "circle.svg",
   theme.warn)
 theme.titlebar_maximized_button_normal_active   = theme_path .. "icons/" .. "circle.svg"
@@ -167,7 +154,7 @@ theme.playerctl_update_on_activity              = false
 theme.playerctl_position_update_interval        = 1
 theme.playerctl_backend                         = "playerctl_lib"
 
-local icon_dir                                  = colors.iconTheme .. "/apps/scalable/"
+theme.icon_dir                                  = colors.iconTheme .. "/apps/scalable/"
 theme.progressbar_bg                            = theme.pri .. '11'
 theme.progressbar_fg                            = theme.pri
 return theme

@@ -1,4 +1,5 @@
 require('ui.bar')
+require("ui.capturer")
 require('ui.titlebars')
 require("ui.popups")
 require("ui.dings")
