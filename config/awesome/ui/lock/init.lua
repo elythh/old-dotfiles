@@ -197,7 +197,7 @@ promptbox:setup({
 		header,
 		{
 			{
-				markup = helpers.colorizeText("Namish Pande", beautiful.fg),
+				markup = helpers.colorizeText("Gwenc'hlan Le Kerneau", beautiful.fg),
 				font = beautiful.sans .. " Semibold 16",
 				align = "center",
 				valign = "center",
