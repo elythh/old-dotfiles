@@ -1,5 +1,5 @@
 local _M = {
-	terminal = "kitty",
+	terminal = os.getenv("TERMINAL") or "kitty",
 	editor = os.getenv("EDITOR") or "nano",
 }
 
