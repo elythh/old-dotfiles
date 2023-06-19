@@ -1,11 +1,10 @@
--- This is a sample file
 local M = {}
 
-M.name = "pop"
-M.wall = "/home/gwen/.config/awesome/theme/wallpapers/verdant/morocco.jpg"
-M.ow = "morocco.jpg" -- only the name of the wallpaper
-M.iconTheme = "/usr/share/icons/Reversal-black"
-M.gtkTheme = "popgtk"
+M.name = "verdant"
+M.wall = "~/.config/awesome/theme/wallpapers/verdant/abstract.png"
+M.ow = "cat.png" -- only the name of the wallpaper
+M.iconTheme = "./icons/Reversal"
+M.gtkTheme = "popgtk" -- just set name of any gtk you have installed or make one for this theme
 
 M.ok = "#56966e"
 M.warn = "#dcae61"
@@ -21,7 +20,7 @@ M.bg4 = "#272727"
 
 M.fg = "#dfdddd"
 M.fg2 = "#b7b7b7"
-M.fg3 = "#a4b5b5"
+M.fg3 = "#d4d5d5"
 M.fg4 = "#5a5858"
 
 return M
