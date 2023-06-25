@@ -1,26 +1,24 @@
 local M = {}
 
-M.name = "verdant"
-M.wall = "~/.config/awesome/theme/wallpapers/verdant/abstract.png"
-M.ow = "cat.png" -- only the name of the wallpaper
+M.name = "cat"
+M.ow = "girlwithcat.jpg"
+M.wall = "~/.config/awesome/theme/wallpapers/cat/pixel.png"
 M.iconTheme = "./icons/Reversal"
-M.gtkTheme = "popgtk" -- just set name of any gtk you have installed or make one for this theme
+M.gtkTheme = "catgtk"
 
-M.ok = "#56966e"
-M.warn = "#dcae61"
-M.err = "#c14d53"
-M.pri = "#6e95bd"
-M.dis = "#a56db1"
-
-M.bg = "#0c0c0c"
-M.mbg = "#181817"
-M.bg2 = "#191919"
-M.bg3 = "#1b1b1b"
-M.bg4 = "#272727"
-
-M.fg = "#dfdddd"
-M.fg2 = "#b7b7b7"
-M.fg3 = "#d4d5d5"
-M.fg4 = "#5a5858"
+M.ok = "#A6D189"
+M.warn = "#E5C890"
+M.err = "#E78284"
+M.pri = "#8CAAEE"
+M.dis = "#F4B8E4"
+M.bg = "#11111b"
+M.mbg = "#1b1b29"
+M.bg2 = "#1e1e2e"
+M.bg3 = "#3a3e4b"
+M.bg4 = "#3b3e48"
+M.fg = "#f5e0dc"
+M.fg2 = "#B5BFE2"
+M.fg3 = "#83889a"
+M.fg4 = "#6c7086"
 
 return M

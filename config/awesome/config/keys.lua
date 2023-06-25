@@ -1,5 +1,5 @@
 local M = {
-	openweatherapi = "your_key_here",
+	openweatherapi = "d70774ca6d06e412d366fc71675f44d2",
 	password = "here",
 }
 

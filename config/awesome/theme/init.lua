@@ -98,7 +98,7 @@ theme.notification_icon_size = dpi(80)
 
 theme.separator_color = theme.fg2
 
-theme.profilepicture = theme_path .. "/pics/pfps/profile.jpg"
+theme.profilepicture = theme_path .. "/pics/pfps/purrplecat.png"
 theme.songdefpicture = theme_path .. "/pics/nosong.jpg"
 theme.menupicture = theme_path .. "/pics/menu2.png"
 
