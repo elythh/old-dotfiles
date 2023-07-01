@@ -217,11 +217,6 @@ local tomfoolery = function(s)
         convert = "image-viewer"
       },
       {
-        name = "firefox",
-        convert = "safari",
-        command = "firefox"
-      },
-      {
         name = "code",
         convert = "visualstudiocode",
         command = "code"
@@ -286,8 +281,8 @@ local tomfoolery = function(s)
         count = 0,
         id = 2,
         clients = {},
-        name = "st-256color",
-        class = "st-256color"
+        name = "kitty",
+        class = "kitty"
       },
       {
         count = 0,
@@ -333,7 +328,7 @@ local tomfoolery = function(s)
       },
     }
     -- end
-    local classes = { "st-256color", "discord", "ncmpcpppad", "firefox", "spotify", "nemo", "code", "notion-app-enhanced" }
+    local classes = { "kitty", "discord", "ncmpcpppad", "firefox", "spotify", "nemo", "code", "notion-app-enhanced" }
     local dockElements = wibox.widget { layout = layout, spacing = 5 }
     -- generating the data
     for _, c in ipairs(clients) do
