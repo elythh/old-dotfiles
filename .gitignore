@@ -1,3 +1,4 @@
 config/zsh/.z*
 config/awesome/config/keys.lua
+config/zsh/env.zsh
 .git
