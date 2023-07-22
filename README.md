@@ -8,13 +8,13 @@
 ├── config
 │   ├── awesome
 │   ├── BetterDiscord
+│   ├── kitty
+│   ├── nvim
 │   ├── picom
-│   ├── rofi
-│   ├── firefox
 │   ├── spicetify
 │   ├── starship
-│   ├── nvim
-│   └── wezterm
+│   ├── zellij
+│   └── zsh
 └── README.md
 ```
 
@@ -22,16 +22,19 @@
 
 ### awesome
 
-basically [mariod8's](github.com/mariod8/dotfile) dotfile with minor modifications \
-currently testing out [chadcat7's](https://github.com/chadcat7/fuyu) config on branch new-awesome
+[chadcat7's](https://github.com/chadcat7/fuyu) config on branch new-awesome
 
 ### betterdiscord
 
 some random themes
 
-### firefox
+## kitty
 
-from [AmadeuWM](https://github.com/AmadeusWM/dotfiles-hyprland/tree/main/dots/firefox)
+[rxyhn's conf](https://github.com/rxyhn)
+
+## nvim
+
+based of [chadcat7/KODO](https://github.com/chadcat7/kodo)
 
 ### picom
 
@@ -45,10 +48,10 @@ small custom theme to match the rest (need fix)
 
 based of rxyhn, with some modifications
 
-### nvim
+### zellij
 
-lazyvim with some small tweaks
+for now it'a basically the default conf
 
-### wezterm
+### zsh
 
-from mariod8
+nothing much to say
